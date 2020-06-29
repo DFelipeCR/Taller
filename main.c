@@ -44,8 +44,8 @@ void egolatra(char cadena[]){
     }
 }
 
-void primoDesendente(int num){
-    int i=num, j;
+void primoDesendente(char cadena[]){
+    int i=atoi(cadena), j;
     for(i; i>=1; i--){
         bool aux=false;
         j=i;
