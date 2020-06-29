@@ -95,7 +95,6 @@ void menu(){
                 }else{
                     printf("Error al digitar el numero\n");
                 }
-                primoDesendente(num);
                 break;
             case 2:
                 printf("Digite un numero para verificar si es o no egolatra\nNumero: ");
