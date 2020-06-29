@@ -5,6 +5,30 @@
 #include <math.h>
 #include <string.h>
 
+int validarNumeros(char cadena[]){
+    for(int i=0; i<strlen(cadena)-1; i++){
+        if(!isdigit(cadena[i])){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+int pruebaXO(char cadena[]){
+    int i, aux=0;
+    for (i=0 ; i<strlen(cadena)-1; i++){
+        if ((cadena[i]=='X' || cadena[i]=='O') || (cadena[i]=='O' || cadena[i]=='X')){
+            aux=0;
+        }else{
+            aux=1;
+            break;
+        }
+    }
+    return aux;
+}
+
+
 void egolatra(char cadena[]){
     int numero=atoi(cadena), i=0, auxNum=0, potencia=strlen(cadena)-1;
     int numCadena[potencia];
@@ -65,13 +89,23 @@ void menu(){
         switch(opcion){
             case 1:
                 printf("Digite el numero para ver los numeros primos desde n hasta 1\nNumero: ");
-                scanf("%d",& num);
+                fgets(cadena,30,stdin);
+                if (validarNumeros(cadena)!=0){
+                    primoDesendente(cadena);
+                }else{
+                    printf("Error al digitar el numero\n");
+                }
                 primoDesendente(num);
                 break;
             case 2:
                 printf("Digite un numero para verificar si es o no egolatra\nNumero: ");
                 fgets(cadena,30,stdin);
-                egolatra(cadena);
+                if (validarNumeros(cadena)!=0){
+                    egolatra(cadena);
+                }else{
+                    printf("Error al digitar el numero\n");
+                }
+
                 break;
             case 3:
 
@@ -88,7 +122,13 @@ void menu(){
             case 7:
                 printf("Digite una cadena compuesta por X y O (de la forma XOXXOOOXO) para calcular el puntaje\nCadena: ");
                 fgets(cadena,30, stdin);
-                cadenaPuntaje(cadena);
+                fflush(stdin);
+                if(pruebaXO(cadena)!=0){
+                    printf("Error al digitar la cadena\n");
+                }else{
+                    cadenaPuntaje(cadena);
+                }
+
                 break;
             case 8:
                 printf("Adios");
@@ -100,6 +140,7 @@ void menu(){
         }
     }while(opcion!=8);
 }
+
 
 
 int main(int argc, char *argv[]) {
