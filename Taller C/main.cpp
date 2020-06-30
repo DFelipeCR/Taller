@@ -199,6 +199,10 @@ void menu() {
     char startNumber [10];
     char endNumber [10];
     char digitException [10];
+    char fib0[MAX] = "0";
+    char fib1[MAX] = "1";
+    char fibAux[MAX];
+    int n;
 
     do {
         printf("Digite una opción: \n1) Primos descendentes\n2) Número Egolatra \n3) Número mágico \n4) Indice de masa corporal (IMC) \n5) Suma de digitos \n6) Fibonacci de bits \n7) Puntaje dados por X y O \n8) Salir \n\n Opcion:  ");
@@ -335,29 +339,20 @@ void menu() {
                 break;
 
             case 6:
-            char fib0[MAX] = "0";
-                char fib1[MAX] = "1";
-                char fibAux[MAX];
-
-                for (int i = 0;i < n - 1;i = i +1) {
+               printf("Digite el número de la secuencia: \n");
+                   scanf("%i",&n);
+                   if (n == 0) {
+                     printf("0 \n");
+                    } else {
+                     for (int i = 0;i < n - 1;i = i +1) {
                         strcpy(fibAux,fib1);
                         strcat(fib1,fib0);
                         strcpy(fib0,fibAux);
                     }
                     printf("%s \n",fib1);
                     }
-            int main(void) {
-                   int n;
-                   printf("Digite el número de la secuencia: \n");
-                   scanf("%i",&n);
-                   if (n == 0) {
-                     printf("0 \n");
-                    } else {
-                      fibonacci(n);
-                    }
-                    return 0;
-                }
-                break;
+                   return 0;
+               
                 break;
             case 7:
                 printf("Digite una cadena compuesta por X y O (de la forma XOXXOOOXO) para calcular el puntaje\nCadena: ");
