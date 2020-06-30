@@ -5,6 +5,9 @@
 #include <math.h>
 #include <string.h>
 
+
+#define MAX 100
+
 int validarNumeros(char cadena[]){
     for(int i=0; i<strlen(cadena)-1; i++){
         if(!isdigit(cadena[i])){
@@ -116,7 +119,29 @@ void menu(){
 
                 break;
             case 6:
+            void fibonacci(int n) {
+                char fib0[MAX] = "0";
+                char fib1[MAX] = "1";
+                char fibAux[MAX];
 
+                for (int i = 0;i < n - 1;i = i +1) {
+                        strcpy(fibAux,fib1);
+                        strcat(fib1,fib0);
+                        strcpy(fib0,fibAux);
+                    }
+                    printf("%s \n",fib1);
+                    }
+            int main(void) {
+                   int n;
+                   printf("Digite el número de la secuencia: \n");
+                   scanf("%i",&n);
+                   if (n == 0) {
+                     printf("0 \n");
+                    } else {
+                      fibonacci(n);
+                    }
+                    return 0;
+                }
                 break;
             case 7:
                 printf("Digite una cadena compuesta por X y O (de la forma XOXXOOOXO) para calcular el puntaje\nCadena: ");
