@@ -18,6 +18,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <string.h>
+#define MAX 100
 
 int validarNumeros(char cadena[]) {
     for (int i = 0; i < strlen(cadena) - 1; i++) {
